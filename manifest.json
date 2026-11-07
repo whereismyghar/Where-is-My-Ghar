@@ -1,6 +1,6 @@
 {
-  "name": "Where Is My Ghar",
-  "short_name": "Where Is My Ghar",
+  "name": "Where is My Ghar",
+  "short_name": "Where is My Ghar",
   "description": "Find rental rooms, hostels, and flats across India. Direct owner, zero brokerage.",
   "start_url": "/Where-is-My-Ghar/",
   "display": "standalone",
