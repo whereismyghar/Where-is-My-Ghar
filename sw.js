@@ -1,5 +1,5 @@
-const CACHE_NAME = 'wimg-v6';
-const STATIC_ASSETS = ['/Where-is-My-Ghar/', '/Where-is-My-Ghar/index.html', '/Where-is-My-Ghar/manifest.json', '/Where-is-My-Ghar/offline.html'];
+const CACHE_NAME = 'wimg-v7';
+const STATIC_ASSETS = ['/', '/index.html', '/manifest.json', '/offline.html'];
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
@@ -39,7 +39,7 @@ self.addEventListener('fetch', (event) => {
           caches.open(CACHE_NAME).then((cache) => cache.put(request, copy));
           return response;
         })
-        .catch(() => caches.match('/Where-is-My-Ghar/offline.html').then((r) => r || caches.match(request).then((cached) => cached || caches.match('/Where-is-My-Ghar/index.html'))))
+        .catch(() => caches.match('/offline.html').then((r) => r || caches.match(request).then((cached) => cached || caches.match('/index.html'))))
     );
     return;
   }

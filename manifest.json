@@ -2,20 +2,20 @@
   "name": "Where is My Ghar",
   "short_name": "Where is My Ghar",
   "description": "Find rental rooms, hostels, and flats across India. Direct owner, zero brokerage.",
-  "start_url": "/Where-is-My-Ghar/",
+  "start_url": "/",
   "display": "standalone",
   "background_color": "#0d9488",
   "theme_color": "#0d9488",
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "/Where-is-My-Ghar/icon-192.png",
+      "src": "/icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/Where-is-My-Ghar/icon-512.png",
+      "src": "/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
