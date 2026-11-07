@@ -1,4 +1,4 @@
-const CACHE_NAME = 'wimg-v4';
+const CACHE_NAME = 'wimg-v5';
 const STATIC_ASSETS = ['/Where-is-My-Ghar/', '/Where-is-My-Ghar/index.html', '/Where-is-My-Ghar/manifest.json', '/Where-is-My-Ghar/offline.html'];
 
 self.addEventListener('install', (event) => {
