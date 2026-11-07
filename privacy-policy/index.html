@@ -42,14 +42,16 @@
         <h2>Information we process and why</h2>
         <ul>
           <li>
-            <strong>Account and profile information:</strong> information you provide to
-            create and use an account, including your name, email address, and phone number.
-            It is used for account access and the app's account features.
+            <strong>Account and profile information:</strong> sign-in primarily uses your
+            mobile number, which maps to authentication credentials in the backend. Your
+            name, mobile number, and other account details are processed for account access
+            and account features.
           </li>
           <li>
-            <strong>Property listings and photos:</strong> listing details and photos you
-            submit are used to create owner listings and show those listings to people using
-            the app.
+            <strong>Property listings and photos:</strong> listing details you submit are
+            used to create owner listings and show them to people using the app. Uploading
+            property photos is optional. If you upload photos, they are stored with the
+            listing in Supabase to display property previews to guests.
           </li>
           <li>
             <strong>Owner contact details:</strong> the owner name and phone number included
@@ -62,15 +64,27 @@
             your saved listings feature.
           </li>
           <li>
-            <strong>Location:</strong> if you use nearby-property or location features, the
-            app requests device/browser location permission and uses coordinates for nearby
-            suggestions, reverse-geocoding, and map or navigation display.
+            <strong>Location services and navigation:</strong>
+            <ul>
+              <li>
+                <strong>Owner View:</strong> when an owner chooses "Use my current location"
+                while creating a listing, the app uses the device location to pin the
+                property's precise location so guests can see it on the map.
+              </li>
+              <li>
+                <strong>Guest View:</strong> device location permission is required for the
+                "Nearby First" property listing view. Guests can also view a property's
+                location on its embedded map or choose "Navigate with Google Maps" to open
+                Google Maps for directions.
+              </li>
+            </ul>
           </li>
           <li>
             <strong>Voice search:</strong> if you choose voice search, the browser/device
-            Web Speech API converts speech to text for the search. Per the publisher, speech
-            is processed on-device; Where Is My Ghar does not record, upload to its backend,
-            or retain voice audio.
+            Web Speech API converts speech to text for the search and may request microphone
+            permission. This microphone permission is separate from location permission.
+            Per the publisher, speech is processed on-device; Where Is My Ghar does not
+            record, upload to its backend, or retain voice audio.
           </li>
           <li>
             <strong>Device preferences:</strong> the web app stores preferences such as
@@ -84,15 +98,17 @@
         <ul>
           <li>
             You can deny or later revoke location permission in your browser or device
-            settings. Nearby suggestions and location-based features may then be unavailable.
+            settings. The "Nearby First" view and other location-based features may then be
+            unavailable.
           </li>
           <li>
-            Voice search is optional. You can use text search instead and manage microphone
-            access through your browser or device settings.
+            Voice search is optional and uses microphone permission, not location
+            permission. You can use text search instead and manage microphone access through
+            your browser or device settings.
           </li>
           <li>
-            You choose which property photos to submit. Photos submitted with a listing are
-            uploaded to Supabase for that listing.
+            Property photo uploads are optional. Photos you choose to upload are stored in
+            Supabase with the listing for guest property previews.
           </li>
           <li>
             Calling or messaging an owner is optional. If you choose a call or WhatsApp
@@ -117,7 +133,7 @@
           </li>
           <li>
             <strong>OpenStreetMap Nominatim</strong> receives location coordinates for
-            reverse-geocoding and city suggestions.
+            location-based city suggestions.
           </li>
           <li>
             <strong>Google Maps</strong> receives location data when a map or navigation
