@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <script>
-      const propertyRoute = window.location.pathname.match(/^\/property\/([\w-]+)\/?$/);
+      const propertyRoute = window.location.pathname.match(/^\/(?:Where-is-My-Ghar\/)?property\/([\w-]+)\/?$/);
       if (propertyRoute) {
         window.location.replace(`/#/property/${encodeURIComponent(propertyRoute[1])}${window.location.search}`);
       }
