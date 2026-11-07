@@ -2,6 +2,12 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <script>
+      const propertyRoute = window.location.pathname.match(/^\/property\/([\w-]+)\/?$/);
+      if (propertyRoute) {
+        window.location.replace(`/#/property/${encodeURIComponent(propertyRoute[1])}${window.location.search}`);
+      }
+    </script>
     <link rel="preload" as="image" href="/app-logo.webp" fetchpriority="high" />
     <link rel="preload" as="image" href="/icon-192.png" fetchpriority="high" />
     <link rel="preload" as="image" href="/assets/images/world.png" fetchpriority="high" />
