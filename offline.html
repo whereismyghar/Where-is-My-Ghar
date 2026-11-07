@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#084037" />
+    <title>No Internet Connection | Where Is My Ghar</title>
+    <style>
+      * { box-sizing: border-box; }
+      body {
+        display: grid;
+        min-height: 100vh;
+        margin: 0;
+        padding: 24px;
+        place-items: center;
+        color: #084037;
+        background: #f8fafc;
+        font-family: Poppins, sans-serif;
+      }
+      main {
+        width: min(100%, 420px);
+        padding: 36px 32px;
+        border: 1px solid #f1f5f9;
+        border-radius: 16px;
+        background: #ffffff;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+        text-align: center;
+      }
+      .icon {
+        display: grid;
+        width: 112px;
+        height: 112px;
+        margin: 0 auto 24px;
+        place-items: center;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #ffffff, #d1fae5);
+        box-shadow: inset 0 2px 8px rgba(255,255,255,.9), 0 12px 24px rgba(8,64,55,.18);
+        animation: float 3s ease-in-out infinite;
+      }
+      h1 { margin: 0; font-size: 22px; line-height: 1.3; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #f8fafc; background: #020617; }
+        p { color: #cbd5e1; }
+        main { border-color: #334155; background: #0f172a; }
+      }
+      p { max-width: 330px; margin: 12px auto 0; color: #083b33; font-size: 14px; line-height: 1.7; }
+      button {
+        display: inline-flex;
+        width: 100%;
+        min-height: 48px;
+        margin-top: 28px;
+        align-items: center;
+        justify-content: center;
+        border: 0;
+        border-radius: 12px;
+        color: white;
+        background: linear-gradient(135deg, #0e876d 0%, #054035 100%);
+        box-shadow: 0 6px 0 #032f27, 0 12px 22px rgba(5,64,53,.24);
+        font: inherit;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: transform .18s ease, box-shadow .18s ease;
+      }
+      button:active { transform: translateY(4px); box-shadow: 0 2px 0 #032f27; }
+      @keyframes float { 0%, 100% { transform: translateY(0) rotate(-2deg); } 50% { transform: translateY(-6px) rotate(2deg); } }
+      @media (prefers-reduced-motion: reduce) { .icon { animation: none; } }
+    </style>
+  </head>
+  <body>
+    <main role="alert">
+      <div class="icon" aria-hidden="true">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#083b33" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 20h.01" />
+          <path d="M8.5 16.429a5 5 0 0 1 7 0" />
+          <path d="M5 12.859a10 10 0 0 1 5.17-2.69" />
+          <path d="M19 12.859a10 10 0 0 0-2.007-1.523" />
+          <path d="M2 8.82a15 15 0 0 1 4.177-2.643" />
+          <path d="M22 8.82a15 15 0 0 0-11.288-3.764" />
+          <path d="m2 2 20 20" />
+        </svg>
+      </div>
+      <h1>No Internet Connection</h1>
+      <p id="status">Please check your network settings and try again to explore properties.</p>
+      <button type="button" onclick="window.location.reload()">Try Again</button>
+    </main>
+    <script>
+      window.addEventListener('online', () => {
+        document.getElementById('status').textContent = 'Connection restored. Select Try Again to continue.';
+      });
+      window.addEventListener('offline', () => {
+        document.getElementById('status').textContent = 'Please check your network settings and try again to explore properties.';
+      });
+    </script>
+  </body>
+</html>
