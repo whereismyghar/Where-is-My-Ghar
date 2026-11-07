@@ -1,4 +1,4 @@
-const CACHE_NAME = 'wimg-v5';
+const CACHE_NAME = 'wimg-v6';
 const STATIC_ASSETS = ['/Where-is-My-Ghar/', '/Where-is-My-Ghar/index.html', '/Where-is-My-Ghar/manifest.json', '/Where-is-My-Ghar/offline.html'];
 
 self.addEventListener('install', (event) => {
@@ -48,7 +48,7 @@ self.addEventListener('fetch', (event) => {
   event.respondWith(
     caches.match(request).then((cached) => {
       if (cached) return cached;
-      return fetch(request).then((response) => {
+      return fetch(request, { cache: 'reload' }).then((response) => {
         if (response.status === 200) {
           const copy = response.clone();
           caches.open(CACHE_NAME).then((cache) => cache.put(request, copy));
