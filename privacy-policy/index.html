@@ -3,12 +3,12 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Privacy Policy for the Where Is My Ghar app and website." />
+    <meta name="description" content="Privacy Policy for the Where Is My Ghar website and apps on supported platforms." />
     <link rel="canonical" href="https://whereismyghar.in/privacy-policy" />
     <link rel="stylesheet" href="/legal.css" />
     <title>Privacy Policy | Where Is My Ghar</title>
   </head>
-  <body class="legal-page">
+  <body class="legal-page" data-legal-page="privacy">
     <header class="legal-header legal-shell">
       <a class="legal-brand" href="/" aria-label="Where Is My Ghar home">
         <img src="/app-logo.webp" alt="" />
@@ -25,15 +25,17 @@
       <h1>Privacy Policy</h1>
       <p class="legal-effective"><strong>Effective date:</strong> November 8, 2026</p>
       <p class="legal-intro">
-        This policy explains what information Where Is My Ghar processes, why it is used,
+        This policy applies to the Where Is My Ghar website and apps on supported platforms,
+        including Android and iOS. It explains what information is processed, why it is used,
         which services handle it, and how you can request account deletion.
       </p>
 
       <section>
         <h2>Publisher and contact</h2>
         <p>
-          Where Is My Ghar is the publisher of the app and website. For privacy questions,
-          support, or account-deletion requests, contact us by email
+          Where Is My Ghar is the publisher of the website and apps on supported platforms,
+          including Android and iOS. For privacy questions, support, or account-deletion
+          requests, contact us by email
         </p>
         <p>
           <a href="mailto:supportwhereismyghar@gmail.com">supportwhereismyghar@gmail.com</a>
@@ -71,26 +73,30 @@
               <li>
                 <strong>Owner View:</strong> when an owner chooses "Use my current location"
                 while creating a listing, the app uses the device location to pin the
-                property's precise location so guests can see it on the map.
+                property's precise location so guests can see it on the map. Location
+                permission is requested only after the owner taps this option.
               </li>
               <li>
-                <strong>Guest View:</strong> device location permission is required for the
-                "Nearby First" property listing view. Guests can also view a property's
-                location on its embedded map or choose "Navigate with Google Maps" to open
-                Google Maps for directions.
+                <strong>Guest View:</strong> device location permission is requested only
+                when you choose the "Nearby First" property listing view. Viewing a
+                property's map or opening Google Maps directions does not require the app
+                to access your device location.
               </li>
             </ul>
           </li>
           <li>
             <strong>Voice search:</strong> if you choose voice search, the browser/device
-            Web Speech API converts speech to text for the search and may request microphone
-            permission. This microphone permission is separate from location permission.
-            Per the publisher, speech is processed on-device; Where Is My Ghar does not
-            record, upload to its backend, or retain voice audio.
+            Web Speech API converts speech to text for the search. Microphone permission is
+            requested only when you tap voice search and is separate from location
+            permission.
+            Depending on your browser and device, speech audio may be sent to and processed
+            by its speech-recognition service. Where Is My Ghar does not store voice audio
+            on its backend; the service provider handles audio under its own privacy
+            practices.
           </li>
           <li>
-            <strong>Device preferences:</strong> the web app stores preferences such as
-            language and user role in browser storage on your device.
+            <strong>Device preferences:</strong> the app and website store preferences such
+            as language and user role in storage on your device or browser.
           </li>
         </ul>
       </section>
@@ -100,13 +106,16 @@
         <ul>
           <li>
             You can deny or later revoke location permission in your browser or device
-            settings. The "Nearby First" view and other location-based features may then be
-            unavailable.
+            settings. Location permission is requested when you choose a feature that needs
+            it, such as "Nearby First" or "Use my current location." Those features may be
+            unavailable if permission is denied.
           </li>
           <li>
             Voice search is optional and uses microphone permission, not location
-            permission. You can use text search instead and manage microphone access through
-            your browser or device settings.
+            permission. Depending on your app, browser, and device, speech audio may be processed
+            by its speech-recognition service under that provider's privacy practices. You
+            can use text search instead and manage microphone access through your app,
+            browser, or device settings.
           </li>
           <li>
             Property photo uploads are optional. Photos you choose to upload are stored in
@@ -145,12 +154,13 @@
             <strong>Unsplash</strong> provides fallback image assets used by the app.
           </li>
           <li>
-            <strong>Google Fonts</strong> supplies font assets requested by your browser
-            when the site loads.
+            <strong>Google Fonts</strong> supplies font assets requested by the app or
+            website when it loads.
           </li>
           <li>
-            <strong>Browser/device Web Speech API</strong> processes voice-search input as
-            described above.
+            <strong>Your browser/device speech-recognition service</strong> may receive and
+            process voice-search audio as described above; its privacy practices depend on
+            the provider.
           </li>
           <li>
             <strong>WhatsApp and your device's phone app</strong> are opened only when you
@@ -192,7 +202,8 @@
         <p>
           Account deletion removes account data from Where Is My Ghar's Supabase backend.
           Independent data processed by third-party services is handled under their own
-          privacy notices and retention practices. See the
+          privacy notices and retention practices. These practices apply regardless of
+          whether you use the website or a supported mobile app. See the
           <a href="/delete-account">Account Deletion page</a> for instructions.
         </p>
       </section>
@@ -215,12 +226,20 @@
       </section>
 
       <section>
-        <h2>Contact</h2>
+        <h2>Need help?</h2>
         <p>
           For privacy, support, or account-deletion requests, contact us by email
         </p>
         <p>
           <a href="mailto:supportwhereismyghar@gmail.com">supportwhereismyghar@gmail.com</a>
+        </p>
+        <p class="legal-whatsapp-paragraph">
+          <a
+            class="legal-whatsapp-link"
+            href="https://wa.me/919304493065?text=Hi%20Where%20Is%20My%20Ghar%20Support,%20I%20have%20a%20privacy%20question."
+            target="_blank"
+            rel="noopener noreferrer"
+          >WhatsApp support (+91 9304493065)</a>
         </p>
       </section>
     </main>
@@ -232,5 +251,6 @@
         <a href="/delete-account">Delete Account</a>
       </nav>
     </footer>
+  <script src="/legal-language.js"></script>
   </body>
 </html>

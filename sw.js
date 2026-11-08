@@ -1,13 +1,5 @@
-const CACHE_NAME = 'wimg-v12';
-const STATIC_ASSETS = [
-  '/',
-  '/index.html',
-  '/manifest-brand.json',
-  '/legal.css',
-  '/offline.html',
-  '/privacy-policy/',
-  '/delete-account/',
-];
+const CACHE_NAME = 'wimg-v13';
+const STATIC_ASSETS = ['/', '/index.html', '/manifest-brand.json', '/offline.html'];
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
@@ -56,7 +48,7 @@ self.addEventListener('fetch', (event) => {
   event.respondWith(
     caches.match(request).then((cached) => {
       if (cached) return cached;
-      return fetch(request, { cache: 'reload' }).then((response) => {
+      return fetch(request).then((response) => {
         if (response.status === 200) {
           const copy = response.clone();
           caches.open(CACHE_NAME).then((cache) => cache.put(request, copy));
