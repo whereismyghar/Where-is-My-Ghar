@@ -1,4 +1,4 @@
-const CACHE_NAME = 'wimg-v14';
+const CACHE_NAME = 'wimg-v15';
 const STATIC_ASSETS = ['/', '/index.html', '/manifest-brand.json', '/offline.html'];
 
 self.addEventListener('install', (event) => {

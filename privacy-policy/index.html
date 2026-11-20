@@ -3,8 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Privacy Policy for the Where Is My Ghar website and apps on supported platforms." />
+    <meta name="description" content="How Where Is My Ghar handles information on its website and supported apps." />
     <link rel="canonical" href="https://whereismyghar.in/privacy-policy" />
+    <link rel="icon" type="image/png" href="/where-is-my-ghar-icon-192.png" />
+    <link rel="apple-touch-icon" href="/where-is-my-ghar-icon-192.png" />
     <link rel="stylesheet" href="/legal.css" />
     <title>Privacy Policy | Where Is My Ghar</title>
   </head>
@@ -16,6 +18,7 @@
       </a>
       <nav class="legal-nav" aria-label="Legal pages">
         <a href="/privacy-policy" aria-current="page">Privacy Policy</a>
+        <a href="/terms-of-use">Terms of Use</a>
         <a href="/delete-account">Delete Account</a>
       </nav>
     </header>
@@ -23,11 +26,12 @@
     <main class="legal-card legal-shell">
       <p class="legal-eyebrow">Where Is My Ghar</p>
       <h1>Privacy Policy</h1>
-      <p class="legal-effective"><strong>Effective date:</strong> November 8, 2026</p>
+      <p class="legal-effective"><strong>Effective date:</strong> November 20, 2026</p>
       <p class="legal-intro">
-        This policy applies to the Where Is My Ghar website and apps on supported platforms,
-        including Android and iOS. It explains what information is processed, why it is used,
-        which services handle it, and how you can request account deletion.
+        This policy covers the Where Is My Ghar website and supported apps, including Android
+        and iOS. It explains what information is used to help you find or list a home, how
+        device permissions and storage work, which outside services are involved, and how
+        to request account deletion.
       </p>
 
       <section>
@@ -46,22 +50,29 @@
         <h2>Information we process and why</h2>
         <ul>
           <li>
-            <strong>Account and profile information:</strong> sign-in primarily uses your
-            mobile number, which maps to authentication credentials in the backend. Your
-            name, mobile number, and other account details are processed for account access
-            and account features.
+            <strong>Account and profile:</strong> you sign in with your mobile number and
+            password. Your name and phone number support your account and, when included in
+            a listing, help people contact you. Supabase manages your sign-in session, which
+            is kept on your device so you can stay signed in.
           </li>
           <li>
-            <strong>Property listings and photos:</strong> listing details you submit are
-            used to create owner listings and show them to people using the app. Uploading
-            property photos is optional. If you upload photos, they are stored with the
-            listing in Supabase to display property previews to guests.
+            <strong>Owners—property listings and photos:</strong> owners can submit property
+            type and options, rent and deposit, address and location, facilities,
+            availability, contact details, and photos. These details are stored with the
+            listing in Supabase. Photo uploads are optional.
+            <br /><br />
+            <strong>Tenants browsing while signed out:</strong> you can see public details
+            such as city/locality, rent, facilities, and photos, but the app withholds the
+            exact street address, landmark, pincode, owner name, phone number, and GPS
+            coordinates. Sign in to view those details, open the listing map or directions,
+            or contact the owner. City and locality remain visible.
           </li>
           <li>
-            <strong>Owner contact details:</strong> the owner name and phone number included
-            in a listing support its contact options. If you tap a listing's call or
-            WhatsApp button, the phone number is passed to your dialer; WhatsApp also
-            receives a prefilled listing message.
+            <strong>Contact and sharing:</strong> calling or WhatsApping an owner requires
+            sign-in. After you choose one of those actions, the owner's listed phone number
+            and a prefilled message are handed to the selected phone app or WhatsApp. If you
+            share a listing, its link and selected listing details are passed to your
+            device's share option or copied to your clipboard.
           </li>
           <li>
             <strong>Saved properties:</strong> saved-property and bookmark records support
@@ -71,32 +82,59 @@
             <strong>Location services and navigation:</strong>
             <ul>
               <li>
-                <strong>Owner View:</strong> when an owner chooses "Use my current location"
-                while creating a listing, the app uses the device location to pin the
-                property's precise location so guests can see it on the map. Location
-                permission is requested only after the owner taps this option.
+                <strong>Owner addresses:</strong> owners enter the street/house details,
+                landmark, locality, city, state, and pincode manually. The current listing
+                form does not read the owner's device GPS. An existing listing may retain
+                coordinates saved earlier while its address remains unchanged; changing
+                the address clears those coordinates. Retained coordinates may be used to
+                display a map or match a listing in Nearby.
               </li>
               <li>
-                <strong>Guest View:</strong> device location permission is requested only
-                when you choose the "Nearby First" property listing view. Viewing a
-                property's map or opening Google Maps directions does not require the app
-                to access your device location.
+                <strong>Address search:</strong> text search matches listing locality, city,
+                and landmark. State, city, and locality filters match the corresponding
+                listing address details.
+              </li>
+              <li>
+                <strong>Nearby (within 10 km):</strong> when you choose this optional
+                filter, the browser or device asks for location permission and sends your
+                current coordinates to Supabase, which finds and orders listings with
+                location pins within 10 km. If location is denied or unavailable, you can
+                continue with the address filters or text search. Opening a listing map or
+                directions does not require the app to read your current device location.
               </li>
             </ul>
           </li>
           <li>
             <strong>Voice search:</strong> if you choose voice search, the browser/device
-            Web Speech API converts speech to text for the search. Microphone permission is
-            requested only when you tap voice search and is separate from location
-            permission.
-            Depending on your browser and device, speech audio may be sent to and processed
-            by its speech-recognition service. Where Is My Ghar does not store voice audio
-            on its backend; the service provider handles audio under its own privacy
-            practices.
+            Web Speech API converts speech to search text. Microphone access is requested
+            only when you start the feature. Depending on your browser and device, audio
+            may be processed by its speech-recognition provider. Where Is My Ghar does not
+            store voice audio on its backend; the provider's privacy practices apply.
           </li>
           <li>
-            <strong>Device preferences:</strong> the app and website store preferences such
-            as language and user role in storage on your device or browser.
+            <strong>Preferences:</strong> language, theme, selected user mode, onboarding
+            status, and app version may be saved on your device. Some preferences, such as
+            language and user mode, may also be linked to your account.
+          </li>
+          <li>
+            <strong>Browser and app storage:</strong> local storage can keep your sign-in
+            session, preferences, up to 30 previously used owner addresses, and an
+            unfinished listing form with selected photo previews. The app treats that draft
+            as expired after 10 minutes. Session storage can keep your search text, filters,
+            sort order, saved-only choice, view choice, and scroll position for the current
+            browser session. The browser
+            does not show a separate permission prompt for this storage. You can clear it
+            through your browser or device settings; account deletion does not clear these
+            local copies. Signing out clears your sign-in session.
+          </li>
+          <li>
+            <strong>Property reports:</strong> when you report a listing, we store the
+            listing and account identifiers, selected reason, date, and—only for "Other"—
+            the description you enter (up to 500 characters). Reports help prevent repeat
+            submissions and apply listing moderation. One account can report a listing
+            once. Five reports from different signed-in accounts hide the listing from
+            public feeds; the listing is not automatically deleted. Report details are not
+            displayed publicly, and the owner sees only a status notice in the dashboard.
           </li>
         </ul>
       </section>
@@ -106,9 +144,9 @@
         <ul>
           <li>
             You can deny or later revoke location permission in your browser or device
-            settings. Location permission is requested when you choose a feature that needs
-            it, such as "Nearby First" or "Use my current location." Those features may be
-            unavailable if permission is denied.
+            settings. Location access is requested when you choose "Nearby (within
+            10 km)." If permission is denied or location is unavailable, you can use the
+            address filters or text search instead.
           </li>
           <li>
             Voice search is optional and uses microphone permission, not location
@@ -138,17 +176,14 @@
         <h2>Services that process information</h2>
         <ul>
           <li>
-            <strong>Supabase</strong> provides account authentication and backend
-            database/storage services for account profiles, property listings, saved
-            properties, and uploaded listing photos.
+            <strong>Supabase</strong> provides account authentication, session handling, and
+            backend database/storage services for profiles, listings, saved properties,
+            reports, and uploaded photos.
           </li>
           <li>
-            <strong>OpenStreetMap Nominatim</strong> receives location coordinates for
-            location-based city suggestions.
-          </li>
-          <li>
-            <strong>Google Maps</strong> receives location data when a map or navigation
-            display is shown.
+            The current owner listing flow does not use a geocoding provider to fill
+            address fields. <strong>Google Maps</strong> may receive a listing address or
+            previously saved coordinates when you open its map or directions.
           </li>
           <li>
             <strong>Unsplash</strong> provides fallback image assets used by the app.
@@ -163,11 +198,10 @@
             the provider.
           </li>
           <li>
-            <strong>WhatsApp and your device's phone app</strong> are opened only when you
-            choose a support or listing call/WhatsApp action. For a listing contact, the
-            owner's number is passed to the dialer for a call; WhatsApp receives the owner's
-            number and a prefilled listing message. A support WhatsApp link opens with a
-            prefilled support message.
+            <strong>WhatsApp, your phone app, and your device's share feature</strong> are
+            involved only when you choose to contact support or an owner, or share a
+            listing. The selected app or service handles what you send under its own
+            privacy practices.
           </li>
         </ul>
         <p>
@@ -181,11 +215,12 @@
       <section>
         <h2>Retention and account deletion</h2>
         <p>
-          Active user profile and property listing data is retained while your account is
-          active. For in-app deletion requests, the account enters an automated 30-day grace
-          period. Signing back in during that period automatically cancels the request. When
-          the 30 days expire, user profile data, property listings, uploaded photos, and
-          saved bookmarks are automatically and permanently deleted from the backend.
+          While your account is active, we keep the profile and listing information needed
+          to run your account and show your listings. After you confirm in-app deletion, the
+          app starts removing your profile, listings, uploaded listing photos, saved-property
+          records, and account-owned reports. Once cleanup completes, the app signs you out.
+          Your authentication identity is retained so you can sign in again with the same
+          phone number and create a fresh profile.
         </p>
         <p>
           If you cannot access the app, you can send an account-deletion request with your
@@ -196,15 +231,20 @@
         </p>
         <p>
           The support team manually reviews and
-          processes email requests within 7 to 10 business days. This email process is
-          separate from the in-app 30-day grace period.
+          processes email requests within 7 to 10 business days.
         </p>
         <p>
           Account deletion removes account data from Where Is My Ghar's Supabase backend.
           Independent data processed by third-party services is handled under their own
-          privacy notices and retention practices. These practices apply regardless of
-          whether you use the website or a supported mobile app. See the
+          privacy notices and retention practices. See the
           <a href="/delete-account">Account Deletion page</a> for instructions.
+        </p>
+        <p>
+          Some information is kept only in your browser or installed app, such as saved
+          preferences, address suggestions, and an unfinished listing draft. These device
+          copies are not removed by deleting your online account. You can clear the app or
+          website's stored data in your device or browser settings. An unfinished listing
+          draft is treated as expired after 10 minutes.
         </p>
       </section>
 
@@ -248,6 +288,7 @@
       <p>Where Is My Ghar</p>
       <nav aria-label="Footer legal links">
         <a href="/privacy-policy">Privacy Policy</a>
+        <a href="/terms-of-use">Terms of Use</a>
         <a href="/delete-account">Delete Account</a>
       </nav>
     </footer>
