@@ -22,7 +22,9 @@ a {
 
 .legal-page {
   min-height: 100vh;
-  padding: 24px;
+  min-height: 100dvh;
+  padding: calc(24px + var(--safe-area-inset-top, env(safe-area-inset-top, 0px))) 24px
+    calc(24px + var(--safe-area-inset-bottom, env(safe-area-inset-bottom, 0px)));
 }
 
 .legal-shell {
@@ -165,7 +167,8 @@ h1 {
 
 @media (max-width: 560px) {
   .legal-page {
-    padding: 16px;
+    padding: calc(16px + var(--safe-area-inset-top, env(safe-area-inset-top, 0px))) 16px
+      calc(16px + var(--safe-area-inset-bottom, env(safe-area-inset-bottom, 0px)));
   }
 
   .legal-header {

@@ -2,11 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="description" content="How Where Is My Ghar handles information on its website and supported apps." />
     <link rel="canonical" href="https://whereismyghar.in/privacy-policy" />
-    <link rel="icon" type="image/png" href="/where-is-my-ghar-icon-192.png" />
-    <link rel="apple-touch-icon" href="/where-is-my-ghar-icon-192.png" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="stylesheet" href="/legal.css" />
     <title>Privacy Policy | Where Is My Ghar</title>
   </head>
@@ -63,7 +63,7 @@
             <br /><br />
             <strong>Tenants browsing while signed out:</strong> you can see public details
             such as city/locality, rent, facilities, and photos, but the app withholds the
-            exact street address, landmark, pincode, owner name, phone number, and GPS
+            exact street address, landmark, pincode, owner name, phone number, and saved map
             coordinates. Sign in to view those details, open the listing map or directions,
             or contact the owner. City and locality remain visible.
           </li>
@@ -83,11 +83,11 @@
             <ul>
               <li>
                 <strong>Owner addresses:</strong> owners enter the street/house details,
-                landmark, locality, city, state, and pincode manually. The current listing
-                form does not read the owner's device GPS. An existing listing may retain
-                coordinates saved earlier while its address remains unchanged; changing
+                landmark, locality, city, state, and pincode manually. An existing listing
+                may retain previously saved map coordinates while its address remains
+                unchanged; changing
                 the address clears those coordinates. Retained coordinates may be used to
-                display a map or match a listing in Nearby.
+                display a listing on a map.
               </li>
               <li>
                 <strong>Address search:</strong> text search matches listing locality, city,
@@ -95,12 +95,8 @@
                 listing address details.
               </li>
               <li>
-                <strong>Nearby (within 10 km):</strong> when you choose this optional
-                filter, the browser or device asks for location permission and sends your
-                current coordinates to Supabase, which finds and orders listings with
-                location pins within 10 km. If location is denied or unavailable, you can
-                continue with the address filters or text search. Opening a listing map or
-                directions does not require the app to read your current device location.
+                <strong>Listing maps and directions:</strong> opening a listing's map or
+                directions may send its address or saved map coordinates to Google Maps.
               </li>
             </ul>
           </li>
@@ -143,14 +139,12 @@
         <h2>Permissions and your choices</h2>
         <ul>
           <li>
-            You can deny or later revoke location permission in your browser or device
-            settings. Location access is requested when you choose "Nearby (within
-            10 km)." If permission is denied or location is unavailable, you can use the
-            address filters or text search instead.
+            Opening a listing's map or directions may send its address or saved map
+            coordinates to Google Maps.
           </li>
           <li>
-            Voice search is optional and uses microphone permission, not location
-            permission. Depending on your app, browser, and device, speech audio may be processed
+            Voice search is optional and uses microphone permission. Depending on your
+            app, browser, and device, speech audio may be processed
             by its speech-recognition service under that provider's privacy practices. You
             can use text search instead and manage microphone access through your app,
             browser, or device settings.
@@ -219,8 +213,9 @@
           to run your account and show your listings. After you confirm in-app deletion, the
           app starts removing your profile, listings, uploaded listing photos, saved-property
           records, and account-owned reports. Once cleanup completes, the app signs you out.
-          Your authentication identity is retained so you can sign in again with the same
-          phone number and create a fresh profile.
+          After cleanup is complete, you'll be signed out. If you choose to use the app
+          again later, you can sign in with the same phone number and set up a new profile.
+          Your deleted profile and related app data won't be restored.
         </p>
         <p>
           If you cannot access the app, you can send an account-deletion request with your
