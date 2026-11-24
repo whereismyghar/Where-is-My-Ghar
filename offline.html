@@ -2,23 +2,31 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="theme-color" content="#084037" />
+    <link rel="stylesheet" href="/safe-area.css" />
     <title>No Internet Connection | Where Is My Ghar</title>
     <style>
-      * { box-sizing: border-box; }
+      * {
+        box-sizing: border-box;
+      }
       body {
-        display: grid;
-        min-height: 100vh;
+        min-height: 100%;
         margin: 0;
-        padding: 24px;
-        place-items: center;
+        padding-inline: 24px;
         color: #084037;
         background: #f8fafc;
         font-family: Poppins, sans-serif;
       }
+      .offline-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
       main {
         width: min(100%, 420px);
+        flex: 0 0 auto;
+        margin-block: auto;
         padding: 36px 32px;
         border: 1px solid #f1f5f9;
         border-radius: 16px;
@@ -67,23 +75,25 @@
       @media (prefers-reduced-motion: reduce) { .icon { animation: none; } }
     </style>
   </head>
-  <body>
-    <main role="alert">
-      <div class="icon" aria-hidden="true">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#083b33" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 20h.01" />
-          <path d="M8.5 16.429a5 5 0 0 1 7 0" />
-          <path d="M5 12.859a10 10 0 0 1 5.17-2.69" />
-          <path d="M19 12.859a10 10 0 0 0-2.007-1.523" />
-          <path d="M2 8.82a15 15 0 0 1 4.177-2.643" />
-          <path d="M22 8.82a15 15 0 0 0-11.288-3.764" />
-          <path d="m2 2 20 20" />
-        </svg>
-      </div>
-      <h1>No Internet Connection</h1>
-      <p id="status">Please check your network settings and try again to explore properties.</p>
-      <button type="button" onclick="window.location.reload()">Try Again</button>
-    </main>
+  <body class="app-background app-safe-area">
+    <div class="safe-area-scroll-body offline-content">
+      <main role="alert">
+        <div class="icon" aria-hidden="true">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#083b33" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 20h.01" />
+            <path d="M8.5 16.429a5 5 0 0 1 7 0" />
+            <path d="M5 12.859a10 10 0 0 1 5.17-2.69" />
+            <path d="M19 12.859a10 10 0 0 0-2.007-1.523" />
+            <path d="M2 8.82a15 15 0 0 1 4.177-2.643" />
+            <path d="M22 8.82a15 15 0 0 0-11.288-3.764" />
+            <path d="m2 2 20 20" />
+          </svg>
+        </div>
+        <h1>No Internet Connection</h1>
+        <p id="status">Please check your network settings and try again to explore properties.</p>
+        <button type="button" onclick="window.location.reload()">Try Again</button>
+      </main>
+    </div>
     <script>
       window.addEventListener('online', () => {
         document.getElementById('status').textContent = 'Connection restored. Select Try Again to continue.';

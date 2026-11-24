@@ -478,7 +478,7 @@
 
   const common = translations[locale].common;
   const labels = [common.privacy, common.terms, common.delete];
-  setText(".legal-nav a, .legal-footer nav a", [...labels, ...labels]);
+  setText(".legal-nav a", labels);
   document.querySelector(".legal-brand")?.setAttribute("aria-label", common.home);
   document.querySelector(".legal-nav")?.setAttribute("aria-label", common.legal);
   document.querySelector(".legal-footer nav")?.setAttribute("aria-label", common.legal);

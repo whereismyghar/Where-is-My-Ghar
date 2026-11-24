@@ -1,0 +1,83 @@
+* {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+:root {
+  --app-safe-area-top: var(--safe-area-inset-top, env(safe-area-inset-top, 0px));
+  --app-safe-area-bottom: var(--safe-area-inset-bottom, env(safe-area-inset-bottom, 0px));
+}
+
+.app-background {
+  position: fixed;
+  inset: 0;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.app-safe-area {
+  box-sizing: border-box;
+  padding-block: var(--app-safe-area-top) var(--app-safe-area-bottom);
+}
+
+.safe-area-scroll-body {
+  flex: 1 1 0%;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+.safe-area-action-footer {
+  flex: 0 0 auto;
+}
+
+.safe-area-banner-offset {
+  bottom: calc(var(--app-safe-area-bottom) + 5rem);
+}
+
+.safe-area-toast-offset {
+  top: calc(var(--app-safe-area-top) + 4rem);
+}
+
+.safe-area-backdrop {
+  clip-path: inset(var(--app-safe-area-top) 0 var(--app-safe-area-bottom));
+  background-color: rgb(2 6 23 / 60%);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+
+.safe-area-backdrop--solid {
+  background-color: #020617;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+.safe-area-backdrop-root {
+  isolation: isolate;
+}
+
+.safe-area-backdrop-root::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background-color: rgb(2 6 23 / 60%);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  clip-path: inset(var(--app-safe-area-top) 0 var(--app-safe-area-bottom));
+  content: '';
+  pointer-events: none;
+}
+
+.safe-area-backdrop-root--subtle::before {
+  background-color: rgb(2 6 23 / 50%);
+}
