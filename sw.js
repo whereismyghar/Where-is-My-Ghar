@@ -1,10 +1,19 @@
-const CACHE_NAME = 'wimg-v20';
-const STATIC_ASSETS = ['/', '/index.html', '/manifest-brand.json', '/offline.html', '/safe-area.css'];
+const CACHE_NAME = 'wimg-v30';
+const STATIC_ASSETS = ['/', '/index.html', '/app-logo.webp', '/manifest-brand.json', '/safe-area.css', '/theme-tokens.css', '/i18n-runtime.js', '/precache-manifest.json'];
+
+async function precacheAppAssets() {
+  const response = await fetch('/precache-manifest.json', { cache: 'no-store' });
+  if (!response.ok) throw new Error(`Could not load the app asset manifest: ${response.status}`);
+  const assets = await response.json();
+  if (!Array.isArray(assets) || !assets.every((asset) => typeof asset === 'string' && asset.startsWith('/'))) {
+    throw new Error('The app asset manifest has an invalid format.');
+  }
+  const cache = await caches.open(CACHE_NAME);
+  await cache.addAll([...new Set([...STATIC_ASSETS, ...assets])]);
+}
 
 self.addEventListener('install', (event) => {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => cache.addAll(STATIC_ASSETS))
-  );
+  event.waitUntil(precacheAppAssets());
   self.skipWaiting();
 });
 
@@ -30,7 +39,12 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // Network-first for navigation, cache fallback for offline
+  if (url.searchParams.has('wimg-connectivity-probe')) {
+    event.respondWith(fetch(request));
+    return;
+  }
+
+  // Return the cached app shell so its global connectivity fallback remains consistent.
   if (request.mode === 'navigate') {
     event.respondWith(
       fetch(request)
@@ -39,7 +53,7 @@ self.addEventListener('fetch', (event) => {
           caches.open(CACHE_NAME).then((cache) => cache.put(request, copy));
           return response;
         })
-        .catch(() => caches.match('/offline.html').then((r) => r || caches.match(request).then((cached) => cached || caches.match('/index.html'))))
+        .catch(() => caches.match('/index.html'))
     );
     return;
   }

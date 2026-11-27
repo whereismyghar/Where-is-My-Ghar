@@ -3,31 +3,80 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="preload" as="image" href="/app-logo.webp" fetchpriority="high" />
+    <link rel="stylesheet" href="/theme-tokens.css" />
     <link rel="stylesheet" href="/safe-area.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet" />
     <link rel="icon" type="image/png" sizes="192x192" href="/favicon.png?v=2" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
-    <meta name="theme-color" content="#f8fafc" media="(display-mode: standalone) and (prefers-color-scheme: dark)" />
-    <meta name="theme-color" content="#f8fafc" media="(display-mode: standalone)" />
-    <meta name="theme-color" content="#0d9488" />
+    <meta name="theme-color" content="#f4f8f6" />
     <meta name="description" content="Where Is My Ghar — Find rental rooms, hostels, and flats across India. Direct owner, zero brokerage." />
-    <link rel="manifest" href="/manifest-brand.json?v=20" />
+    <link rel="canonical" href="https://whereismyghar.in/" />
+    <link rel="manifest" href="/manifest-brand.json?v=30" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <meta name="apple-mobile-web-app-title" content="Where Is My Ghar" />
     <title>Where Is My Ghar — Rental Discovery for Bharat</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://whereismyghar.in/" />
+    <meta property="og:site_name" content="Where Is My Ghar" />
     <meta property="og:title" content="Where Is My Ghar — Rental Discovery for Bharat" />
     <meta property="og:description" content="Find rental rooms, hostels, and flats across India. Direct owner, zero brokerage." />
-    <meta property="og:image" content="/where-is-my-ghar-icon-512.png">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="/where-is-my-ghar-icon-512.png">
-  <script type="module" crossorigin src="/assets/index-BJp5zmNZ.js"></script>
+    <meta property="og:image" content="https://whereismyghar.in/where-is-my-ghar-icon-512.png" />
+    <meta property="og:image:alt" content="Where Is My Ghar app logo" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Where Is My Ghar — Rental Discovery for Bharat" />
+    <meta name="twitter:description" content="Find rental rooms, hostels, and flats across India. Direct owner, zero brokerage." />
+    <meta name="twitter:image" content="https://whereismyghar.in/where-is-my-ghar-icon-512.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://whereismyghar.in/#organization",
+            "name": "Where Is My Ghar",
+            "alternateName": ["WhereIsMyGhar", "WIMG"],
+            "url": "https://whereismyghar.in/",
+            "logo": "https://whereismyghar.in/where-is-my-ghar-icon-512.png"
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://whereismyghar.in/#website",
+            "url": "https://whereismyghar.in/",
+            "name": "Where Is My Ghar",
+            "alternateName": ["WhereIsMyGhar", "WIMG"],
+            "publisher": { "@id": "https://whereismyghar.in/#organization" },
+            "inLanguage": "en-IN"
+          }
+        ]
+      }
+    </script>
+    <script>
+      (() => {
+        let mode = 'system';
+        try {
+          const savedMode = localStorage.getItem('wimg-theme');
+          if (savedMode === 'light' || savedMode === 'dark' || savedMode === 'system') {
+            mode = savedMode;
+          }
+        } catch (error) {
+          console.warn('Could not read the saved theme preference.', error);
+        }
+        const dark = mode === 'dark'
+          || (mode === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        document.documentElement.dataset.theme = mode;
+        document.documentElement.classList.toggle('dark', dark);
+        document.querySelector('meta[name="theme-color"]')?.setAttribute('content', dark ? '#020617' : '#f4f8f6');
+      })();
+    </script>
+    <script src="/i18n-runtime.js"></script>
+  <script type="module" crossorigin src="/assets/index-B7373-5s.js"></script>
   <link rel="modulepreload" crossorigin href="/assets/react-vendor-DyEBtZqm.js">
   <link rel="modulepreload" crossorigin href="/assets/supabase-vendor-M9zECEaR.js">
-  <link rel="stylesheet" crossorigin href="/assets/index-COJpZw0v.css">
+  <link rel="stylesheet" crossorigin href="/assets/index-DfAvEWbW.css">
 </head>
   <body>
     <div id="root"></div>

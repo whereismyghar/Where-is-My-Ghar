@@ -9,6 +9,15 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="stylesheet" href="/safe-area.css" />
     <link rel="stylesheet" href="/legal.css" />
+    <script>
+      try {
+        const theme = localStorage.getItem('wimg-theme');
+        document.documentElement.dataset.theme = ['light', 'dark', 'system'].includes(theme) ? theme : 'system';
+      } catch {
+        document.documentElement.dataset.theme = 'system';
+      }
+    </script>
+    <script src="/i18n-runtime.js"></script>
     <title>Privacy Policy | Where Is My Ghar</title>
   </head>
   <body class="app-background app-safe-area legal-page" data-legal-page="privacy">

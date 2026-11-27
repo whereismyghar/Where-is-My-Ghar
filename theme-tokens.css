@@ -1,0 +1,74 @@
+:root {
+  color-scheme: light;
+  --wimg-page: #f4f8f6;
+  --wimg-surface: #ffffff;
+  --wimg-surface-muted: #f1f5f9;
+  --wimg-icon-tint: #d1fae5;
+  --wimg-border: #e2e8f0;
+  --wimg-text: #0f172a;
+  --wimg-text-muted: #475569;
+  --wimg-text-subtle: #64748b;
+  --wimg-heading: #083b33;
+  --wimg-primary: #0d9488;
+  --wimg-primary-strong: #054035;
+  --wimg-secondary: #059669;
+  --wimg-link: #087c68;
+  --wimg-brand: #075e50;
+  --wimg-button: #087c68;
+  --wimg-button-hover: #066554;
+  --wimg-overlay: rgb(2 6 23 / 60%);
+  --wimg-overlay-solid: #020617;
+  --wimg-glass-surface: rgb(255 255 255 / 82%);
+  --wimg-glass-border: rgb(255 255 255 / 30%);
+}
+
+:root.dark,
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --wimg-page: #020617;
+  --wimg-surface: #0f172a;
+  --wimg-surface-muted: #1e293b;
+  --wimg-icon-tint: #064e3b;
+  --wimg-border: #334155;
+  --wimg-text: #f1f5f9;
+  --wimg-text-muted: #cbd5e1;
+  --wimg-text-subtle: #94a3b8;
+  --wimg-heading: #f1f5f9;
+  --wimg-primary: #14b8a6;
+  --wimg-primary-strong: #0f766e;
+  --wimg-secondary: #34d399;
+  --wimg-link: #6ee7c4;
+  --wimg-brand: #6ee7c4;
+  --wimg-button: #0b806d;
+  --wimg-button-hover: #09927b;
+  --wimg-overlay: rgb(0 0 0 / 68%);
+  --wimg-overlay-solid: #020617;
+  --wimg-glass-surface: rgb(15 23 42 / 82%);
+  --wimg-glass-border: rgb(255 255 255 / 12%);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.dark):not([data-theme="light"]):not([data-theme="dark"]) {
+    color-scheme: dark;
+    --wimg-page: #020617;
+    --wimg-surface: #0f172a;
+    --wimg-surface-muted: #1e293b;
+    --wimg-icon-tint: #064e3b;
+    --wimg-border: #334155;
+    --wimg-text: #f1f5f9;
+    --wimg-text-muted: #cbd5e1;
+    --wimg-text-subtle: #94a3b8;
+    --wimg-heading: #f1f5f9;
+    --wimg-primary: #14b8a6;
+    --wimg-primary-strong: #0f766e;
+    --wimg-secondary: #34d399;
+    --wimg-link: #6ee7c4;
+    --wimg-brand: #6ee7c4;
+    --wimg-button: #0b806d;
+    --wimg-button-hover: #09927b;
+    --wimg-overlay: rgb(0 0 0 / 68%);
+    --wimg-overlay-solid: #020617;
+    --wimg-glass-surface: rgb(15 23 42 / 82%);
+    --wimg-glass-border: rgb(255 255 255 / 12%);
+  }
+}

@@ -1,12 +1,24 @@
+@import url("/theme-tokens.css");
+
 :root {
-  color-scheme: light dark;
+  --page-text: var(--wimg-text);
+  --page-background: var(--wimg-page);
+  --link-color: var(--wimg-link);
+  --brand-color: var(--wimg-brand);
+  --card-border: var(--wimg-border);
+  --card-background: var(--wimg-surface);
+  --eyebrow-color: var(--wimg-link);
+  --heading-color: var(--wimg-heading);
+  --muted-color: var(--wimg-text-muted);
+  --effective-color: var(--wimg-text-subtle);
+  --button-background: var(--wimg-button);
+  --button-hover: var(--wimg-button-hover);
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  color: #17211f;
-  background: #f3f8f6;
+  color: var(--page-text);
+  background: var(--page-background);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
 }
-
 * {
   box-sizing: border-box;
 }
@@ -16,13 +28,13 @@ body {
 }
 
 a {
-  color: #087c68;
+  color: var(--link-color);
   text-underline-offset: 3px;
 }
 
 .legal-page {
   padding-inline: 24px;
-  background: #f3f8f6;
+  background: var(--page-background);
 }
 
 .legal-content-scroll {
@@ -54,7 +66,7 @@ a {
 
 .legal-brand {
   gap: 10px;
-  color: #075e50;
+  color: var(--brand-color);
   font-size: 15px;
   font-weight: 750;
   text-decoration: none;
@@ -75,15 +87,15 @@ a {
 
 .legal-card {
   padding: clamp(24px, 5vw, 48px);
-  border: 1px solid #dce9e5;
+  border: 1px solid var(--card-border);
   border-radius: 24px;
-  background: #fff;
+  background: var(--card-background);
   box-shadow: 0 16px 48px rgb(19 72 61 / 7%);
 }
 
 .legal-eyebrow {
   margin: 0 0 8px;
-  color: #087c68;
+  color: var(--eyebrow-color);
   font-size: 12px;
   font-weight: 750;
   letter-spacing: 0.1em;
@@ -92,20 +104,20 @@ a {
 
 h1 {
   margin: 0;
-  color: #123b33;
+  color: var(--heading-color);
   font-size: clamp(30px, 6vw, 42px);
   line-height: 1.15;
 }
 
 .legal-effective {
   margin: 12px 0 0;
-  color: #62736e;
+  color: var(--effective-color);
   font-size: 14px;
 }
 
 .legal-intro {
   margin: 24px 0 32px;
-  color: #40534e;
+  color: var(--muted-color);
   font-size: 17px;
   line-height: 1.7;
 }
@@ -116,13 +128,13 @@ h1 {
 
 .legal-card h2 {
   margin: 0 0 12px;
-  color: #173d35;
+  color: var(--heading-color);
   font-size: 20px;
 }
 
 .legal-card p,
 .legal-card li {
-  color: #40534e;
+  color: var(--muted-color);
   font-size: 15px;
   line-height: 1.75;
 }
@@ -141,7 +153,7 @@ h1 {
   margin: 8px 0;
   padding: 11px 16px;
   border-radius: 12px;
-  background: #087c68;
+  background: var(--button-background);
   color: #fff;
   -webkit-text-fill-color: #fff;
   font-weight: 700;
@@ -156,7 +168,7 @@ h1 {
 }
 
 .legal-button:hover {
-  background: #066554;
+  background: var(--button-hover);
 }
 
 @media (max-width: 560px) {
@@ -169,52 +181,4 @@ h1 {
     flex-direction: column;
   }
 
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    color: #e5eeeb;
-    background: #0b1714;
-  }
-
-  .legal-page {
-    background: #0b1714;
-  }
-
-  .legal-brand {
-    color: #6ee7c4;
-  }
-
-  .legal-card {
-    border-color: #29463e;
-    background: #12221e;
-  }
-
-  .legal-eyebrow,
-  a {
-    color: #6ee7c4;
-  }
-
-  h1,
-  .legal-card h2 {
-    color: #e3f4ee;
-  }
-
-  .legal-effective,
-  .legal-card p,
-  .legal-card li {
-    color: #c4d5ce;
-  }
-
-  .legal-card .legal-button,
-  .legal-card .legal-button:link,
-  .legal-card .legal-button:visited {
-    background: #0b806d;
-    color: #fff;
-    -webkit-text-fill-color: #fff;
-  }
-
-  .legal-card .legal-button:hover {
-    background: #09927b;
-  }
 }

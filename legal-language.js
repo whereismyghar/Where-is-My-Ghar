@@ -1,17 +1,34 @@
 (() => {
   let savedLanguages = [];
+  let savedTheme = null;
   try {
+    const currentLanguage = localStorage.getItem("userLanguage");
+    const legacyLanguage = localStorage.getItem("hasOnboarded") === "true"
+      ? localStorage.getItem("wimg_app_language")
+      : null;
     savedLanguages = [
-      localStorage.getItem("userLanguage"),
-      localStorage.getItem("wimg_app_language"),
+      currentLanguage,
+      legacyLanguage,
     ];
+    savedTheme = localStorage.getItem("wimg-theme");
   } catch (error) {
-    console.warn("Could not read the saved app language for the legal page.", error);
+    console.warn("Could not read the saved app preferences for the legal page.", error);
   }
   const requestedLocale = new URLSearchParams(window.location.search).get("lang");
-  const locale = [requestedLocale, ...savedLanguages].find((language) =>
-    ["en", "hi", "hinglish"].includes(language),
-  ) || "en";
+  const locale = window.wimgI18n.resolveLanguage([requestedLocale, ...savedLanguages], "en");
+  const setTheme = (theme) => {
+    document.documentElement.dataset.theme = ["light", "dark", "system"].includes(theme)
+      ? theme
+      : "system";
+  };
+  setTheme(savedTheme);
+  window.addEventListener("storage", (event) => {
+    if (event.key === "wimg-theme") {
+      setTheme(event.newValue);
+    } else if (["hasOnboarded", "userLanguage", "wimg_app_language"].includes(event.key)) {
+      window.location.reload();
+    }
+  });
   const page = document.body.dataset.legalPage;
   const email = '<a href="mailto:supportwhereismyghar@gmail.com">supportwhereismyghar@gmail.com</a>';
   const deletionEmail =
@@ -177,7 +194,7 @@
       privacy: {
         title: "गोपनीयता नीति | Where Is My Ghar",
         description: "Where Is My Ghar आपकी जानकारी का इस्तेमाल कैसे करता है और आप उसे कैसे संभाल सकते हैं।",
-        effective: "<strong>प्रभावी तिथि:</strong> 20 नवंबर, 2026",
+        effective: "<strong>प्रभावी तिथि:</strong> 23 नवंबर, 2026",
         intro:
           "Where Is My Ghar पर घर ढूँढना या अपनी प्रॉपर्टी की जानकारी साझा करना आसान बने—इसीलिए यह नीति साफ़-साफ़ बताती है कि आपकी कौन-सी जानकारी इस्तेमाल होती है, वह कहाँ रखी जाती है, और आप उसे कैसे संभाल सकते हैं। यह वेबसाइट और Android व iOS ऐप पर लागू होती है।",
         headings: [
@@ -237,7 +254,7 @@
         title: "उपयोग की शर्तें | Where Is My Ghar",
         description: "Where Is My Ghar की वेबसाइट और ऐप इस्तेमाल करने के नियम।",
         eyebrow: "सेवा इस्तेमाल करने की शर्तें",
-        effective: "<strong>प्रभावी तिथि:</strong> 20 नवंबर, 2026",
+        effective: "<strong>प्रभावी तिथि:</strong> 23 नवंबर, 2026",
         intro:
           "Where Is My Ghar की वेबसाइट या Android और iOS ऐप इस्तेमाल करने पर ये शर्तें लागू होती हैं। सेवा इस्तेमाल करके आप इन्हें स्वीकार करते हैं। अगर आप सहमत नहीं हैं, तो कृपया सेवा का इस्तेमाल न करें।",
         headings: [
@@ -279,7 +296,7 @@
         title: "खाता हटाएँ | Where Is My Ghar",
         description: "Where Is My Ghar का खाता हटाने का तरीका और उसके बाद आपके डेटा का क्या होता है।",
         eyebrow: "आपके खाते और जानकारी पर आपका नियंत्रण",
-        effective: "<strong>अपडेट तिथि:</strong> 20 नवंबर, 2026 · वेबसाइट, ऐप और ईमेल",
+        effective: "<strong>अपडेट तिथि:</strong> 23 नवंबर, 2026 · वेबसाइट, ऐप और ईमेल",
         intro:
           "ऐप में अपने खाते का डेटा स्थायी रूप से हटाने का अनुरोध कर सकते हैं। अगर ऐप तक पहुँच नहीं है, तो हमें ईमेल भेजें और हमारी सहायता टीम अनुरोध की समीक्षा करेगी।",
         headings: [
@@ -324,7 +341,7 @@
       privacy: {
         title: "Privacy Policy | Where Is My Ghar",
         description: "Where Is My Ghar aapki information ka use kaise karta hai aur aap use kaise manage kar sakte hain.",
-        effective: "<strong>Effective date:</strong> 23 November, 2026",
+        effective: "<strong>Effective date:</strong> November 23, 2026",
         intro:
           "Where Is My Ghar par ghar dhoondhna ya apni property ki details share karna aasaan rahe—isliye yeh policy simple words mein batati hai ki aapki kaunsi information use hoti hai, woh kahan rehti hai, aur aap use kaise manage kar sakte hain. Yeh website aur Android/iOS apps par apply hoti hai.",
         headings: [
@@ -384,7 +401,7 @@
         title: "Terms of Use | Where Is My Ghar",
         description: "Where Is My Ghar website aur supported apps use karne ki terms.",
         eyebrow: "User agreement",
-        effective: "<strong>Effective date:</strong> 23 November, 2026",
+        effective: "<strong>Effective date:</strong> November 23, 2026",
         intro:
           "Yeh terms Where Is My Ghar website aur Android aur iOS samet supported apps use karne par apply hoti hain. Service use karke aap in terms se agree karte hain. Agree nahi hain to service use na karein.",
         headings: [
@@ -426,7 +443,7 @@
         title: "Delete Account | Where Is My Ghar",
         description: "Where Is My Ghar account delete karne ka tareeka aur uske baad data ke saath kya hota hai.",
         eyebrow: "Aapke account aur information par aapka control",
-        effective: "<strong>Updated:</strong> 23 November, 2026 · Website, app aur email",
+        effective: "<strong>Updated:</strong> November 23, 2026 · Website, app aur email",
         intro:
           "App se account data permanently delete kar sakte hain. App access na ho to humein email bhejein; support team aapki request review karegi.",
         headings: [
@@ -461,8 +478,17 @@
     },
   };
 
-  const content = translations[locale][page === "delete-account" ? "delete" : page];
-  if (!content) return;
+  const preserveLegalLinkLocale = () => {
+    document.querySelectorAll(
+      'a[href="/privacy-policy"], a[href="/terms-of-use"], a[href="/delete-account"]',
+    ).forEach((link) => {
+      const url = new URL(link.href);
+      url.searchParams.set("lang", locale);
+      link.href = `${url.pathname}${url.search}${url.hash}`;
+    });
+  };
+  const content = window.wimgI18n.getValue(locale, translations, page === "delete-account" ? "delete" : page);
+  if (!content || typeof content !== "object") return;
 
   const setText = (selector, values, html = false) => {
     const elements = document.querySelectorAll(selector);
@@ -476,7 +502,7 @@
     });
   };
 
-  const common = translations[locale].common;
+  const common = window.wimgI18n.getValue(locale, translations, "common");
   const labels = [common.privacy, common.terms, common.delete];
   setText(".legal-nav a", labels);
   document.querySelector(".legal-brand")?.setAttribute("aria-label", common.home);
@@ -487,6 +513,10 @@
     locale === "hi" ? "hi" : locale === "hinglish" ? "hi-Latn" : "en";
   document.title = content.title;
   document.querySelector('meta[name="description"]')?.setAttribute("content", content.description);
+  if (locale === "en") {
+    preserveLegalLinkLocale();
+    return;
+  }
   setText(".legal-card h1", [
     page === "privacy" ? common.privacy : page === "terms-of-use" ? common.terms : common.delete,
   ]);
@@ -519,11 +549,5 @@
     url.searchParams.set("text", content.whatsappMessage);
     link.href = url.toString();
   });
-  document.querySelectorAll(
-    'a[href="/privacy-policy"], a[href="/terms-of-use"], a[href="/delete-account"]',
-  ).forEach((link) => {
-    const url = new URL(link.href);
-    url.searchParams.set("lang", locale);
-    link.href = `${url.pathname}${url.search}${url.hash}`;
-  });
+  preserveLegalLinkLocale();
 })();

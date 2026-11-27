@@ -2,9 +2,10 @@
   "name": "Where Is My Ghar",
   "short_name": "Where Is My Ghar",
   "description": "Find rental rooms, hostels, and flats across India. Direct owner, zero brokerage.",
+  "id": "/",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#f8fafc",
+  "background_color": "#f4f8f6",
   "theme_color": "#0d9488",
   "orientation": "portrait-primary",
   "icons": [

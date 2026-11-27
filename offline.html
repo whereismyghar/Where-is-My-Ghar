@@ -3,8 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <meta name="theme-color" content="#084037" />
+    <meta name="theme-color" content="#f4f8f6" />
+    <link rel="stylesheet" href="/theme-tokens.css" />
     <link rel="stylesheet" href="/safe-area.css" />
+    <script src="/i18n-runtime.js"></script>
     <title>No Internet Connection | Where Is My Ghar</title>
     <style>
       * {
@@ -14,8 +16,8 @@
         min-height: 100%;
         margin: 0;
         padding-inline: 24px;
-        color: #084037;
-        background: #f8fafc;
+        color: var(--wimg-text);
+        background: var(--wimg-page);
         font-family: Poppins, sans-serif;
       }
       .offline-content {
@@ -28,9 +30,9 @@
         flex: 0 0 auto;
         margin-block: auto;
         padding: 36px 32px;
-        border: 1px solid #f1f5f9;
+        border: 1px solid var(--wimg-border);
         border-radius: 16px;
-        background: #ffffff;
+        background: var(--wimg-surface);
         box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
         text-align: center;
       }
@@ -41,17 +43,13 @@
         margin: 0 auto 24px;
         place-items: center;
         border-radius: 50%;
-        background: linear-gradient(135deg, #ffffff, #d1fae5);
+        background: linear-gradient(135deg, var(--wimg-surface), var(--wimg-icon-tint));
         box-shadow: inset 0 2px 8px rgba(255,255,255,.9), 0 12px 24px rgba(8,64,55,.18);
         animation: float 3s ease-in-out infinite;
       }
       h1 { margin: 0; font-size: 22px; line-height: 1.3; }
-      @media (prefers-color-scheme: dark) {
-        body { color: #f8fafc; background: #020617; }
-        p { color: #cbd5e1; }
-        main { border-color: #334155; background: #0f172a; }
-      }
-      p { max-width: 330px; margin: 12px auto 0; color: #083b33; font-size: 14px; line-height: 1.7; }
+      p { max-width: 330px; margin: 12px auto 0; color: var(--wimg-text-muted); font-size: 14px; line-height: 1.7; }
+      .icon svg { stroke: var(--wimg-primary); }
       button {
         display: inline-flex;
         width: 100%;
@@ -62,7 +60,7 @@
         border: 0;
         border-radius: 12px;
         color: white;
-        background: linear-gradient(135deg, #0e876d 0%, #054035 100%);
+        background: linear-gradient(135deg, var(--wimg-primary) 0%, var(--wimg-primary-strong) 100%);
         box-shadow: 0 6px 0 #032f27, 0 12px 22px rgba(5,64,53,.24);
         font: inherit;
         font-size: 14px;
@@ -74,6 +72,46 @@
       @keyframes float { 0%, 100% { transform: translateY(0) rotate(-2deg); } 50% { transform: translateY(-6px) rotate(2deg); } }
       @media (prefers-reduced-motion: reduce) { .icon { animation: none; } }
     </style>
+    <script>
+      (() => {
+        let language = null;
+        let theme = null;
+        try {
+          language = localStorage.getItem('userLanguage');
+          if (!['en', 'hi', 'hinglish'].includes(language)
+            && localStorage.getItem('hasOnboarded') === 'true') {
+            language = localStorage.getItem('wimg_app_language');
+          }
+          theme = localStorage.getItem('wimg-theme');
+        } catch {
+          language = null;
+          theme = null;
+        }
+        const requestedLanguage = new URLSearchParams(window.location.search).get('lang');
+        language = window.wimgI18n.resolveLanguage([requestedLanguage, language], 'en');
+        theme = ['light', 'dark', 'system'].includes(theme) ? theme : 'system';
+        document.documentElement.dataset.language = language;
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.lang = language === 'hi' ? 'hi' : language === 'hinglish' ? 'hi-Latn' : 'en';
+        const themeColor = document.querySelector('meta[name="theme-color"]');
+        const updateThemeColor = () => {
+          const dark = theme === 'dark'
+            || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          themeColor?.setAttribute('content', dark ? '#020617' : '#f4f8f6');
+        };
+        updateThemeColor();
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', updateThemeColor);
+        window.addEventListener('storage', (event) => {
+          if (event.key === 'wimg-theme') {
+            theme = ['light', 'dark', 'system'].includes(event.newValue) ? event.newValue : 'system';
+            document.documentElement.dataset.theme = theme;
+            updateThemeColor();
+          } else if (['hasOnboarded', 'userLanguage', 'wimg_app_language'].includes(event.key)) {
+            window.location.reload();
+          }
+        });
+      })();
+    </script>
   </head>
   <body class="app-background app-safe-area">
     <div class="safe-area-scroll-body offline-content">
@@ -95,12 +133,71 @@
       </main>
     </div>
     <script>
-      window.addEventListener('online', () => {
-        document.getElementById('status').textContent = 'Connection restored. Select Try Again to continue.';
-      });
-      window.addEventListener('offline', () => {
-        document.getElementById('status').textContent = 'Please check your network settings and try again to explore properties.';
-      });
+      const copy = {
+        en: {
+          title: 'No Internet Connection | Where Is My Ghar',
+          heading: 'No Internet Connection',
+          offline: 'Please check your network settings and try again to explore properties.',
+          online: 'Connection restored. Select Try Again to continue.',
+          retry: 'Try Again',
+        },
+        hi: {
+          title: 'इंटरनेट कनेक्शन नहीं है | Where Is My Ghar',
+          heading: 'इंटरनेट कनेक्शन नहीं है',
+          offline: 'प्रॉपर्टी देखने के लिए नेटवर्क सेटिंग्स जाँचें और फिर कोशिश करें।',
+          online: 'कनेक्शन वापस आ गया है। आगे बढ़ने के लिए फिर कोशिश करें चुनें।',
+          retry: 'फिर कोशिश करें',
+        },
+        hinglish: {
+          title: 'Internet connection nahi hai | Where Is My Ghar',
+          heading: 'Internet connection nahi hai',
+          offline: 'Properties dekhne ke liye network settings check karke phir try karein.',
+          online: 'Connection wapas aa gaya. Aage badhne ke liye Try Again chunein.',
+          retry: 'Phir try karein',
+        },
+      };
+      const language = document.documentElement.dataset.language || 'en';
+      const renderStatus = () => {
+        document.title = window.wimgI18n.t(language, copy, 'title');
+        document.querySelector('h1').textContent = window.wimgI18n.t(language, copy, 'heading');
+        document.getElementById('status').textContent = window.wimgI18n.t(
+          language,
+          copy,
+          navigator.onLine ? 'online' : 'offline',
+        );
+        document.querySelector('button').textContent = window.wimgI18n.t(language, copy, 'retry');
+      };
+      window.addEventListener('online', renderStatus);
+      window.addEventListener('offline', renderStatus);
+      let reconnecting = false;
+      const reconnect = async () => {
+        if (!navigator.onLine || reconnecting) return;
+        reconnecting = true;
+        const controller = new AbortController();
+        const timeoutId = window.setTimeout(() => controller.abort(), 5000);
+        try {
+          const probeUrl = new URL('/', window.location.origin);
+          probeUrl.searchParams.set('wimg-connectivity-probe', String(Date.now()));
+          const response = await fetch(probeUrl, {
+            cache: 'no-store',
+            signal: controller.signal,
+          });
+          if (response.ok) {
+            await response.body?.cancel();
+            window.location.reload();
+          } else {
+            reconnecting = false;
+          }
+        } catch {
+          reconnecting = false;
+        } finally {
+          window.clearTimeout(timeoutId);
+        }
+      };
+      window.addEventListener('online', () => { void reconnect(); });
+      window.setInterval(() => { void reconnect(); }, 15000);
+      renderStatus();
+      void reconnect();
     </script>
   </body>
 </html>

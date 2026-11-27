@@ -51,13 +51,13 @@
 
 .safe-area-backdrop {
   clip-path: inset(var(--app-safe-area-top) 0 var(--app-safe-area-bottom));
-  background-color: rgb(2 6 23 / 60%);
+  background-color: var(--wimg-overlay, rgb(2 6 23 / 60%));
   -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
 }
 
 .safe-area-backdrop--solid {
-  background-color: #020617;
+  background-color: var(--wimg-overlay-solid, #020617);
   -webkit-backdrop-filter: none;
   backdrop-filter: none;
 }

@@ -1,0 +1,12 @@
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/web-BxMeZA1q.js","assets/index-B7373-5s.js","assets/react-vendor-DyEBtZqm.js","assets/supabase-vendor-M9zECEaR.js","assets/index-DfAvEWbW.css"])))=>i.map(i=>d[i]);
+import{c as g,Q as d,p as m,R as l,U as h}from"./index-B7373-5s.js";import{_ as f}from"./supabase-vendor-M9zECEaR.js";/**
+ * @license lucide-react v0.446.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */const P=g("BadgeCheck",[["path",{d:"M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z",key:"3c2336"}],["path",{d:"m9 12 2 2 4-4",key:"dzmm74"}]]);/**
+ * @license lucide-react v0.446.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */const S=g("Share2",[["circle",{cx:"18",cy:"5",r:"3",key:"gq8acd"}],["circle",{cx:"6",cy:"12",r:"3",key:"w7nqdw"}],["circle",{cx:"18",cy:"19",r:"3",key:"1xt0gg"}],["line",{x1:"8.59",x2:"15.42",y1:"13.51",y2:"17.49",key:"47mynk"}],["line",{x1:"15.41",x2:"8.59",y1:"6.51",y2:"10.49",key:"1n3mei"}]]),u=d("Share",{web:()=>f(()=>import("./web-BxMeZA1q.js"),__vite__mapDeps([0,1,2,3,4])).then(e=>new e.ShareWeb)}),k="https://whereismyghar.in";function p(e){if(typeof e=="object"&&e!==null&&"name"in e&&e.name==="AbortError")return!0;const a=typeof e=="object"&&e!==null&&"message"in e?e.message:e;return typeof a=="string"&&/^share cancel(?:ed|led)$/i.test(a.trim())}async function v(e,a,i){var s,c;const r=new URL(k);r.searchParams.set("property",e.id);const n=r.toString(),y=e.locality?`${e.locality}, ${e.city}`:e.city,t={title:((s=e.property_name)==null?void 0:s.trim())||l(e,a),text:a("detail.shareMessage",{category:l(e,a),location:y,rent:m(e),perMonth:a("detail.perMonth"),url:""}).trimEnd(),url:n};try{if(h.isNativePlatform()){if(h.isPluginAvailable("Share")){await u.share({...t,dialogTitle:a("detail.share")});return}}else if(typeof navigator.share=="function"&&(typeof navigator.canShare!="function"||navigator.canShare(t))){await navigator.share(t);return}if(!((c=navigator.clipboard)!=null&&c.writeText))throw new Error("Clipboard API is not available.");await navigator.clipboard.writeText(n),i(a("share.linkCopied"),"success")}catch(o){if(p(o))return;console.error("Could not share property listing:",o),i(a("share.failed"),"error")}}export{P as B,S,v as s};
